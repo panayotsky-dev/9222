@@ -28,7 +28,7 @@ export default class Card extends EventEmitter {
     }
     render(){
         const template = 
-        `<div class='card type-${this._type}'>
+        `<div class='card type-${this._type.toLowerCase()}'>
         <div class='emoji'>${this._emoji}</div>
         <span class='type'>${this._type}</span>
         </div>
