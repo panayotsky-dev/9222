@@ -8,9 +8,9 @@ import EventEmitter from "eventemitter3";
 export default class Notification {
     static get types() {
         return {
-                PEPPERONI: "pepperoni",
-                MARGHERITA: "margherita",
-                HAWAIIAN: "hawaiian",
+                PEPPERONI:"pepperoni",
+                MARGHERITA:"margherita",
+                HAWAIIAN:"hawaiian",
                 };
     }
   
@@ -23,12 +23,12 @@ export default class Notification {
   
     render ({ type, price, emoji}){
                 const template = `
-                <div class='notification type-${type.toLowerCase()} ${classNames({ "is-danger": type === Card.types.HAWAIIAN })}'>
+                <div class='notification type-${type.toLowerCase()} ${classNames({ "is-danger" : type == "Hawaiian" })}'>
                 <button class='delete'></button>
                 ${emoji}<span class="type">${type}</span> (<span class='price'> ${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
                 this.container.innerHTML = template;
-        
+          
                 this.notificationDiv.appendChild(this.container);
         
                 let button = this.container.querySelector('.delete')
