@@ -12,20 +12,17 @@ export default class Notification {
                 MARGHERITA:"margherita",
                 HAWAIIAN:"hawaiian",
                 };
-    }
-  
+    }  
     constructor() {
         this.container = document.createElement("div");
         this.container.classList.add('notification-container');
         this.notificationDiv = document.querySelector('.notifications')
-  
-    }
-  
+    }  
     render ({ type, price, emoji}){
                 const template = `
                 <div class='notification type-${type.toLowerCase()}${classNames({ " is-danger" : type == "Hawaiian" })}'>
                 <button class='delete'></button>
-                ${emoji}<span class="type">${type}</span> (<span class='price'> ${formatCurrency(price)}</span>) has been added to your order!
+                ${emoji}<span class="type">${type}</span> (<span class='price:${price}'>${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
                 this.container.innerHTML = template;
           
@@ -33,8 +30,7 @@ export default class Notification {
         
                 let button = this.container.querySelector('.delete')
                 button.addEventListener('click', () => this.empty())
-            };
-        
+            };        
   
     empty() {
       this.notificationDiv.removeChild(this.container)
