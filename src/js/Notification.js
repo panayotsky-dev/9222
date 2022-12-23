@@ -23,7 +23,7 @@ export default class Notification {
   
     render ({ type, price, emoji}){
                 const template = `
-                <div class='notification type-${type.toLowerCase()} ${classNames({ "is-danger" : type == "Hawaiian" })}'>
+                <div class='notification type-${type.toLowerCase()}${classNames({ " is-danger" : type == "Hawaiian" })}'>
                 <button class='delete'></button>
                 ${emoji}<span class="type">${type}</span> (<span class='price'> ${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
