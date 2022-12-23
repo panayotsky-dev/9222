@@ -11,9 +11,9 @@ export default class Card extends EventEmitter {
     }
     static get types(){
         return{
-        HAWAIIAN:"Hawaiian",
-        PEPPERONI:"Pepperoni",
-        MARGHERITA:"Margherita",
+        HAWAIIAN:"hawaiian",
+        PEPPERONI:"hepperoni",
+        MARGHERITA:"margherita",
         };
     }
   
@@ -28,12 +28,13 @@ export default class Card extends EventEmitter {
     }
     render(){
         const template = 
-        `<div class='card type-${this._type}'>
+        `<div class='card type-${this._type.toLowerCase()}'>
         <div class='emoji'>${this._emoji}</div>
         <span class='type'>${this._type}</span>
         </div>
         `;
-        // console.log(`${this._type} , ${this._price},${this._emoji}`)
+        console.log(`${this._type} , ${this._price},${this._emoji}`)
+        console.log(Card.events.ADD_TO_CART);
         this.container.innerHTML = template;
         this.container.addEventListener('click', () =>{
             this.emit(Card.events.ADD_TO_CART,
