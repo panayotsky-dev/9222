@@ -25,11 +25,12 @@ export default class Notification {
                 ${emoji}<span class="type">${type}</span> (<span class='price:${price}'>${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
                 this.container.innerHTML = template;
-          
+                
                 this.notificationDiv.appendChild(this.container);
         
                 let button = this.container.querySelector('.delete')
                 button.addEventListener('click', () => this.empty())
+                document.querySelector('.delete').parentElement.setAttribute('price',`${price}`)
             };        
   
     empty() {
