@@ -23,7 +23,7 @@ export default class Notification {
   
     render ({ type, price, emoji}){
                 const template = `
-                <div class='notification type-${type} ${classNames({ "is-danger": type === Card.types.HAWAIIAN })}'>
+                <div class='notification type-${type.toLowerCase()} ${classNames({ "is-danger": type === Card.types.HAWAIIAN })}'>
                 <button class='delete'></button>
                 ${emoji}<span class="type">${type}</span> (<span class='price'> ${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
@@ -32,11 +32,11 @@ export default class Notification {
                 this.notificationDiv.appendChild(this.container);
         
                 let button = this.container.querySelector('.delete')
-                button.addEventListener('click', () => this.onDelete())
+                button.addEventListener('click', () => this.empty())
             };
         
   
-    onDelete() {
+    empty() {
       this.notificationDiv.removeChild(this.container)
     }
   }
