@@ -22,7 +22,7 @@ export default class Notification {
                 const template = `
                 <div class='notification type-${type.toLowerCase()}${classNames({ " is-danger" : type == "Hawaiian" })}'>
                 <button class='delete'></button>
-                ${emoji}<span class="type">${type}</span> (<span class='price:${price}'>${formatCurrency(price)}</span>) has been added to your order!
+                ${emoji}<span class="type">${type}</span> (<span class='price'>${formatCurrency(price)}</span>) has been added to your order!
                 </div>`;
                 this.container.innerHTML = template;
                 
